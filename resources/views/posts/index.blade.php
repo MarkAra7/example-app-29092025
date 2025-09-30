@@ -10,7 +10,9 @@
     <ul>
         @foreach ($posts as $post)
         <li>
-            <strong>{{ $post->title }}</strong>: {{ $post->content }}
+            <a href="{{ url('/posts/' . $post->id) }}">
+                <strong>{{ $post->title }}</strong>
+            </a>: {{ $post->content }}
         </li>
         @endforeach
     </ul>

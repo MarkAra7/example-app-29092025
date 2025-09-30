@@ -17,4 +17,26 @@ class PostController extends Controller
     {
         return view('posts.create');
     }
+    public function store(Request $request)
+    {
+        // Validācija pēc vajadzības
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        // Jauns ieraksts
+        Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+
+        // Pāradresēšana uz index
+        return redirect('/posts');
+    }
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('posts.show', ['post' => $post]);
+    }
 }
