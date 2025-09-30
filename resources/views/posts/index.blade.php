@@ -14,6 +14,10 @@
         </li>
         @endforeach
     </ul>
+
+    <a href="{{ url('/posts/create') }}">Izveidot jaunu ierakstu</a>
+
+
 </body>
 
 </html>
