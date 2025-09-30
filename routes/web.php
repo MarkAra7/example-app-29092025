@@ -19,4 +19,5 @@ Route::post('/submit-static-form', function (Request $request) {
 
 
 
+
 Route::get('/posts', [PostController::class, 'index']);
