@@ -39,4 +39,31 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         return view('posts.show', ['post' => $post]);
     }
+
+
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('posts.edit', ['post' => $post]);
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect('/posts');
+    }
+    public function delete($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect('/posts');
+    }
 }

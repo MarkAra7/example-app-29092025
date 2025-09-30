@@ -14,6 +14,8 @@
                 <strong>{{ $post->title }}</strong>
             </a>: {{ $post->content }}
         </li>
+        <a href="{{ url('/posts/' . $post->id . '/edit') }}">Rediģēt</a>
+        <a href="{{ url('/posts/delete/' . $post->id) }}">Delete</a>
         @endforeach
     </ul>
 
