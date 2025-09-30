@@ -11,7 +11,7 @@ Route::get('/static-form', function () {
     return view('static_form');
 });
 
-Route::post('/submit-static-form', function (Request $request){
+Route::post('/submit-static-form', function (Request $request) {
     \Log::debug($request);
     return "Form data: " . $request['name'];
 });
